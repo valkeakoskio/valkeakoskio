@@ -23,9 +23,10 @@
             font-family: 'Roboto', sans-serif;
             margin: 0;
             width: 100vw;
-            height: 100vh;
+            min-height: 100vh;
             background: rgb(24,21,64);
             background: linear-gradient(124deg, rgba(24,21,64,1) 0%, rgba(12,73,201,1) 98%);
+            display: flex;
         }
 
         @keyframes star {
@@ -220,24 +221,25 @@
         }
 
         .content {
+            display: block;
             text-align: center;
             max-width: 400px;
             margin: auto;
             color: white;
-            padding-top: 150px;
             text-transform: uppercase;
             opacity: 0;
+            box-shadow: 7px 7px 0px 0px rgba(250,247,247,0.07);
+            padding: 15px;
         }
 
         .appear {
             opacity: 1;
-            transition: opacity 2.5s ease-in-out;
+            box-shadow: 7px 7px 0px 0px rgba(255,255,255,1);
         }
 
     </style>
 </head>
 <body>
-<div class="slide-1">
     <h1 class="header">valkeakoski markinat</h1>
         <div class="snowflake">
             ❅
@@ -270,21 +272,21 @@
             ❄
         </div>
     <main class="content">
-        We are digital agency that would make your dreams real
+        <h3>We are group (7)</h3>
+        The only event agency you ever need!
         <br>
         <br>
-        Just Call us now, and get 10% discount!
+        Call us now, and get 10% discount.
         <br>
         <br>
         Your promo code: 4235
         <br>
         <br>
-        phone: 0405581267
+        phone: 405581267
     </main>
     <footer>
         <button id="get-discount">Get your personal discount</button>
     </footer>
-</div>
 </body>
 <script>
     window.onload = (event) => {
