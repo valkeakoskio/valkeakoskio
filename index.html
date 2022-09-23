@@ -234,8 +234,36 @@
 
         .appear {
             opacity: 1;
+            transition: opacity 1.5s ease-in-out;
         }
 
+        .red {
+            color: red;
+            font-weight: 900;
+        }
+
+        .magic {
+
+        }
+
+        .flare {
+            position: absolute;
+            top: 0;
+            transform: skewX(-45deg); // Наклон
+        animation: flareAnimation;
+            left: -150%;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.4));
+            animation: flareAnimation 3s infinite linear; // Время и тип анимации можно менять
+        }
+
+        @keyframes flareAnimation {
+            0% {
+                left: -150%;
+            }
+            100% {
+                left: 150%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -271,17 +299,15 @@
     ❄
 </div>
 <main class="content">
-    <h3>We are group (7)</h3>
+    <h3>We are group</h3>
+    <h3> 1 * 2 * 3 * ... * 7 = <b class="red">7!</b></h3>
     The only event agency you ever need!
     <br>
     <br>
-    Call us now, and get 10% discount.
+    Call us now, and get <b class="red">-10%</b> discount.
     <br>
     <br>
     Your promo code: 4235
-    <br>
-    <br>
-    phone: 405581267
 </main>
 <footer>
     <button id="get-discount">Get your personal discount</button>
@@ -290,10 +316,18 @@
 <script>
     window.onload = (event) => {
         btn = document.getElementById("get-discount");
-        btn.addEventListener("click", () => {
+        const evnt1 = () => {
             const container = document.getElementsByClassName("content")[0];
-            container.classList.add("appear");
-        });
+            container.classList.add("appear")
+            setTimeout(() => {
+                btn.innerHTML = "Make the f<b class='red'>*</b>king  call right now!"
+                btn.addEventListener("click", () => {
+                    window.open("tel:+358405581267");
+                })
+            }, 2000);
+        };
+
+        btn.addEventListener("click", evnt1);
     }
 
 </script>
