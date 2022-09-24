@@ -214,6 +214,8 @@
             border: white solid 1px;
             cursor: pointer;
             text-transform: uppercase;
+            position: relative;
+            overflow-x: hidden;
         }
 
         .tree {
@@ -249,6 +251,27 @@
         .flare {
             position: absolute;
             top: 0;
+            transform: skewX(-45deg); // Наклон
+        animation: flareAnimation;
+            left: -150%;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.4));
+            animation: flareAnimation 3s infinite linear; // Время и тип анимации можно менять
+        }
+
+        @keyframes flareAnimation {
+            0% {
+                left: -150%;
+            }
+            100% {
+                left: 150%;
+            }
+        }
+
+        .flare {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: 45px;
             transform: skewX(-45deg); // Наклон
         animation: flareAnimation;
             left: -150%;
@@ -314,13 +337,13 @@
 </footer>
 </body>
 <script>
-    window.onload = (event) => {
+    window.onload = () => {
         btn = document.getElementById("get-discount");
         const evnt1 = () => {
             const container = document.getElementsByClassName("content")[0];
             container.classList.add("appear")
             setTimeout(() => {
-                btn.innerHTML = "Make the f<b class='red'>*</b>king  call right now!"
+                btn.innerHTML = "<span class='flare'></span>Make this f<b class='red'>*</b>king  call right now!"
                 btn.addEventListener("click", () => {
                     window.open("tel:+358405581267");
                 })
